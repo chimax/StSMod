@@ -30,8 +30,8 @@ public class IdentityCrisisEvent extends AbstractImageEvent {
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
 
-    private float HEALTH_LOSS_PERCENTAGE = 0.03F; // 3%
-    private float HEALTH_LOSS_PERCENTAGE_LOW_ASCENSION = 0.05F; // 5%
+    private final float HEALTH_LOSS_PERCENTAGE = 0.03F; // 3%
+    private final float HEALTH_LOSS_PERCENTAGE_LOW_ASCENSION = 0.05F; // 5%
 
     private int healthdamage; //The actual number of how much Max HP we're going to lose.
 

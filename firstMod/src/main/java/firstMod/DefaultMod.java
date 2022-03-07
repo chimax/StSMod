@@ -38,22 +38,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
-//TODO: DON'T MASS RENAME/REFACTOR
-//TODO: DON'T MASS RENAME/REFACTOR
-//TODO: DON'T MASS RENAME/REFACTOR
-//TODO: DON'T MASS RENAME/REFACTOR
-// Please don't just mass replace "theDefault" with "yourMod" everywhere.
-// It'll be a bigger pain for you. You only need to replace it in 4 places.
-// I comment those places below, under the place where you set your ID.
-
-//TODO: FIRST THINGS FIRST: RENAME YOUR PACKAGE AND ID NAMES FIRST-THING!!!
-// Right click the package (Open the project pane on the left. Folder with black dot on it. The name's at the very top) -> Refactor -> Rename, and name it whatever you wanna call your mod.
-// Scroll down in this file. Change the ID from "theDefault:" to "yourModName:" or whatever your heart desires (don't use spaces). Dw, you'll see it.
-// In the JSON strings (resources>localization>eng>[all them files] make sure they all go "yourModName:" rather than "theDefault", and change to "yourmodname" rather than "thedefault".
-// You can ctrl+R to replace in 1 file, or ctrl+shift+r to mass replace in specific files/directories, and press alt+c to make the replace case sensitive (Be careful.).
-// Start with the DefaultCommon cards - they are the most commented cards since I don't feel it's necessary to put identical comments on every card.
-// After you sorta get the hang of how to make cards, check out the card template which will make your life easier
-
 /*
  * With that out of the way:
  * Welcome to this super over-commented Slay the Spire modding base.
@@ -81,7 +65,7 @@ public class DefaultMod implements
     private static String modID;
 
     // Mod-settings settings. This is if you want an on/off savable button
-    public static Properties theDefaultDefaultSettings = new Properties();
+    public static Properties firstModDefaultSettings = new Properties();
     public static final String ENABLE_PLACEHOLDER_SETTINGS = "enablePlaceholder";
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
@@ -100,13 +84,6 @@ public class DefaultMod implements
     public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
     public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
     public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
-    
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
   
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_DEFAULT_GRAY = "Resources/images/512/bg_attack_default_gray.png";
@@ -160,10 +137,9 @@ public class DefaultMod implements
     public static String makeEventPath(String resourcePath) {
         return "Resources/images/events/" + resourcePath;
     }
-    
-    // =============== /MAKE IMAGE PATHS/ =================
-    
-    // =============== /INPUT TEXTURE LOCATION/ =================
+
+
+
     
     
     // =============== SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE =================
@@ -172,20 +148,9 @@ public class DefaultMod implements
         logger.info("Subscribe to BaseMod hooks");
         
         BaseMod.subscribe(this);
-        
-      /*
-           (   ( /(  (     ( /( (            (  `   ( /( )\ )    )\ ))\ )
-           )\  )\()) )\    )\()))\ )   (     )\))(  )\()|()/(   (()/(()/(
-         (((_)((_)((((_)( ((_)\(()/(   )\   ((_)()\((_)\ /(_))   /(_))(_))
-         )\___ _((_)\ _ )\ _((_)/(_))_((_)  (_()((_) ((_|_))_  _(_))(_))_
-        ((/ __| || (_)_\(_) \| |/ __| __| |  \/  |/ _ \|   \  |_ _||   (_)
-         | (__| __ |/ _ \ | .` | (_ | _|  | |\/| | (_) | |) |  | | | |) |
-          \___|_||_/_/ \_\|_|\_|\___|___| |_|  |_|\___/|___/  |___||___(_)
-      */
-      
+
         setModID("firstMod");
         // cool
-        // TODO: NOW READ THIS!!!!!!!!!!!!!!!:
         
         // 1. Go to your resources folder in the project panel, and refactor> rename theDefaultResources to
         // yourModIDResources.
@@ -195,7 +160,7 @@ public class DefaultMod implements
         // Because your mod ID isn't the default. Your cards (and everything else) should have Your mod id. Not mine.
         // It's important that the mod ID prefix for keywords used in the cards descriptions is lowercase!
 
-        // 3. Scroll down (or search for "ADD CARDS") till you reach the ADD CARDS section, and follow the TODO instructions
+        // 3. Scroll down (or search for "ADD CARDS") till you reach the ADD CARDS section, and follow the instructions
 
         // 4. FINALLY and most importantly: Scroll up a bit. You may have noticed the image locations above don't use getModID()
         // Change their locations to reflect your actual ID rather than theDefault. They get loaded before getID is a thing.
@@ -216,9 +181,9 @@ public class DefaultMod implements
         logger.info("Adding mod settings");
         // This loads the mod settings.
         // The actual mod Button is added below in receivePostInitialize()
-        theDefaultDefaultSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
+        firstModDefaultSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
         try {
-            SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings); // ...right here
+            SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", firstModDefaultSettings); // ...right here
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
             config.load(); // Load the setting and set the boolean to equal it
             enablePlaceholder = config.getBool(ENABLE_PLACEHOLDER_SETTINGS);
@@ -274,28 +239,29 @@ public class DefaultMod implements
     
     
     public static void initialize() {
-        logger.info("========================= Initializing Default Mod. Hi. =========================");
+        logger.info("========================= Initializing First Mod. =========================");
         DefaultMod defaultmod = new DefaultMod();
-        logger.info("========================= /Default Mod Initialized. Hello World./ =========================");
+        logger.info("========================= First Mod Initialized. =========================");
     }
     
-    // ============== /SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE/ =================
-    
+
+
+
     
     // =============== LOAD THE CHARACTER =================
     
     @Override
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters. " + "Add " + TheDefault.Enums.THE_DEFAULT.toString());
-        
+
         BaseMod.addCharacter(new TheDefault("the Default", TheDefault.Enums.THE_DEFAULT),
                 THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheDefault.Enums.THE_DEFAULT);
         
         receiveEditPotions();
         logger.info("Added " + TheDefault.Enums.THE_DEFAULT.toString());
+
     }
-    
-    // =============== /LOAD THE CHARACTER/ =================
+
     
     
     // =============== POST-INITIALIZE =================
@@ -321,7 +287,7 @@ public class DefaultMod implements
             enablePlaceholder = button.enabled; // The boolean true/false will be whether the button is enabled or not
             try {
                 // And based on that boolean, set the settings and save them
-                SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings);
+                SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", firstModDefaultSettings);
                 config.setBool(ENABLE_PLACEHOLDER_SETTINGS, enablePlaceholder);
                 config.save();
             } catch (Exception e) {
@@ -356,11 +322,12 @@ public class DefaultMod implements
         // Add the event
         BaseMod.addEvent(eventParams);
 
-        // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
     }
     
-    // =============== / POST-INITIALIZE/ =================
+
+
+
     
     // ================ ADD POTIONS ===================
     
@@ -375,8 +342,9 @@ public class DefaultMod implements
         logger.info("Done editing potions");
     }
     
-    // ================ /ADD POTIONS/ ===================
-    
+
+
+
     
     // ================ ADD RELICS ===================
     
@@ -406,7 +374,8 @@ public class DefaultMod implements
         logger.info("Done adding relics!");
     }
     
-    // ================ /ADD RELICS/ ===================
+
+
     
     
     // ================ ADD CARDS ===================
@@ -434,8 +403,6 @@ public class DefaultMod implements
         // The ID for this function isn't actually your modid as used for prefixes/by the getModID() method.
         // It's the mod id you give MTS in ModTheSpire.json - by default your artifact ID in your pom.xml
 
-        //TODO: Rename the "DefaultMod" with the modid in your ModTheSpire.json file
-        //TODO: The artifact mentioned in ModTheSpire.json is the artifactId in pom.xml you should've edited earlier
         new AutoAdd("FirstMod") // ${project.artifactId}
             .packageFilter(AbstractDefaultCard.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
             .setDefaultSeen(true)
@@ -448,7 +415,8 @@ public class DefaultMod implements
         logger.info("Done adding cards!");
     }
     
-    // ================ /ADD CARDS/ ===================
+
+
     
     
     // ================ LOAD THE TEXT ===================
@@ -489,7 +457,9 @@ public class DefaultMod implements
         logger.info("Done edittting strings");
     }
     
-    // ================ /LOAD THE TEXT/ ===================
+
+
+
     
     // ================ LOAD THE KEYWORDS ===================
 
@@ -515,7 +485,8 @@ public class DefaultMod implements
         }
     }
     
-    // ================ /LOAD THE KEYWORDS/ ===================    
+
+
     
     // this adds "ModName:" before the ID of any card/relic/power etc.
     // in order to avoid conflicts if any other mod uses the same ID.

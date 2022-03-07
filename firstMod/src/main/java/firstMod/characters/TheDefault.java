@@ -157,20 +157,27 @@ public class TheDefault extends CustomPlayer {
         logger.info("Begin loading starter Deck Strings");
 
         retVal.add(DefaultCommonAttack.ID);
-        retVal.add(DefaultUncommonAttack.ID);
-        retVal.add(DefaultRareAttack.ID);
-
+        retVal.add(DefaultCommonAttack.ID);
+        retVal.add(DefaultCommonAttack.ID);
+        retVal.add(DefaultCommonAttack.ID);
         retVal.add(DefaultCommonSkill.ID);
-        retVal.add(DefaultUncommonSkill.ID);
-        retVal.add(DefaultRareSkill.ID);
+        retVal.add(DefaultCommonSkill.ID);
+        retVal.add(DefaultCommonSkill.ID);
+        retVal.add(DefaultCommonSkill.ID);
 
-        retVal.add(DefaultCommonPower.ID);
-        retVal.add(DefaultUncommonPower.ID);
-        retVal.add(DefaultRarePower.ID);
+        //retVal.add(DefaultUncommonAttack.ID);
+        //retVal.add(DefaultRareAttack.ID);
 
-        retVal.add(DefaultAttackWithVariable.ID);
-        retVal.add(DefaultSecondMagicNumberSkill.ID);
-        retVal.add(OrbSkill.ID);
+        //retVal.add(DefaultUncommonSkill.ID);
+        //retVal.add(DefaultRareSkill.ID);
+
+        //retVal.add(DefaultCommonPower.ID);
+        //retVal.add(DefaultUncommonPower.ID);
+        //retVal.add(DefaultRarePower.ID);
+
+        //retVal.add(DefaultAttackWithVariable.ID);
+        //retVal.add(DefaultSecondMagicNumberSkill.ID);
+        //retVal.add(OrbSkill.ID);
 
         logger.info("Starter Deck Strings added");
         return retVal;

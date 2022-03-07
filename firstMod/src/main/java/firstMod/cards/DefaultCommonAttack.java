@@ -28,7 +28,7 @@ public class DefaultCommonAttack extends CustomCard {
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
      *
-     * Strike Deal 7(9) damage.
+     * Strike Deal 6(9) damage.
      */
 
     // TEXT DECLARATION
