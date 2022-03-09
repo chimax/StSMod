@@ -16,12 +16,13 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import miniExpansion.util.IDCheckDontTouchPls;
+import miniExpansion.util.TextureLoader;
 //import firstMod.cards.*;
 //import firstMod.characters.TheDefault;
 //import firstMod.events.IdentityCrisisEvent;
 //import firstMod.potions.PlaceholderPotion;
-import miniExpansion.util.IDCheckDontTouchPls;
-import miniExpansion.util.TextureLoader;
 //import firstMod.variables.DefaultCustomVariable;
 //import firstMod.variables.DefaultSecondMagicNumber;
 
