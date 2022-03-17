@@ -30,5 +30,13 @@
       ".",
       "Select a card to bottle for "
     ]
+  },
+
+  "miniExpansion:RunicPentagon": {
+    "NAME": "Runic Pentagon",
+    "FLAVOR": "The runes are indecipherable.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, you may shuffle any number of cards into your draw pile. If you do so, draw #b1 additional cards next turn."
+    ]
   }
 }

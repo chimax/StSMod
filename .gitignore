@@ -3,6 +3,9 @@
 # My backup
 .ref/
 
+# Photoshop temp files
+*.psd
+
 # IntelliJ
 .idea/
 out/

@@ -2,6 +2,7 @@ package miniExpansion;
 
 import basemod.*;
 import basemod.interfaces.*;
+import basemod.helpers.RelicType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
@@ -14,17 +15,12 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+import miniExpansion.relics.BottledPlaceholderRelic;
+import miniExpansion.relics.RunicPentagon;
 import miniExpansion.util.IDCheckDontTouchPls;
 import miniExpansion.util.TextureLoader;
-//import firstMod.cards.*;
-//import firstMod.characters.TheDefault;
-//import firstMod.events.IdentityCrisisEvent;
-//import firstMod.potions.PlaceholderPotion;
-//import firstMod.variables.DefaultCustomVariable;
-//import firstMod.variables.DefaultSecondMagicNumber;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -359,7 +355,8 @@ public class MiniExpansion implements
 //        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
-//        BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
+        BaseMod.addRelic(new BottledPlaceholderRelic(), RelicType.SHARED);
+        BaseMod.addRelic(new RunicPentagon(), RelicType.SHARED);
         
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
@@ -447,6 +444,10 @@ public class MiniExpansion implements
         // OrbStrings
         BaseMod.loadCustomStringsFile(OrbStrings.class,
                 "Resources/localization/eng/MiniExpansion-Orb-Strings.json");
+
+        // UI
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                "Resources/localization/eng/MiniExpansion-UI-Strings.json");
         
         logger.info("Done edittting strings");
     }
