@@ -13,7 +13,7 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 
 public class RunicPentagon extends CustomRelic {
     /*
-     * At the start of your turn, draw #b1 additional cards. At the end of your turn, you may shuffle any number of cards into your draw pile.
+     * At the end of your turn, you may shuffle any number of cards into your draw pile. If you do so, draw #b1 additional cards next turn.
      */
 
     // ID, images, text.

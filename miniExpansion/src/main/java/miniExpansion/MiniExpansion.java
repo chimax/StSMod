@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import miniExpansion.relics.BottledPlaceholderRelic;
 import miniExpansion.relics.RunicPentagon;
+import miniExpansion.relics.SetOfShip;
 import miniExpansion.util.IDCheckDontTouchPls;
 import miniExpansion.util.TextureLoader;
 import org.apache.logging.log4j.LogManager;
@@ -191,6 +192,7 @@ public class MiniExpansion implements
         Gson coolG = new Gson(); // EY DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i hate u Gdx.files
         InputStream in = MiniExpansion.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THIS ETHER
+        assert in != null;
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // OR THIS, DON'T EDIT IT
         logger.info("You are attempting to set your mod ID as: " + ID); // NO WHY
         if (ID.equals(EXCEPTION_STRINGS.DEFAULTID)) { // DO *NOT* CHANGE THIS ESPECIALLY, TO EDIT YOUR MOD ID, SCROLL UP JUST A LITTLE, IT'S JUST ABOVE
@@ -211,6 +213,7 @@ public class MiniExpansion implements
         Gson coolG = new Gson(); // NOPE DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i still hate u btw Gdx.files
         InputStream in = MiniExpansion.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THISSSSS
+        assert in != null;
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // NAH, NO EDIT
         String packageName = MiniExpansion.class.getPackage().getName(); // STILL NO EDIT ZONE
         FileHandle resourcePathExists = Gdx.files.internal("Resources"); // PLEASE DON'T EDIT THINGS HERE, THANKS
@@ -357,6 +360,7 @@ public class MiniExpansion implements
         // This adds a relic to the Shared pool. Every character can find this relic.
         BaseMod.addRelic(new BottledPlaceholderRelic(), RelicType.SHARED);
         BaseMod.addRelic(new RunicPentagon(), RelicType.SHARED);
+        BaseMod.addRelic(new SetOfShip(), RelicType.SHARED);
         
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
@@ -449,7 +453,7 @@ public class MiniExpansion implements
         BaseMod.loadCustomStringsFile(UIStrings.class,
                 "Resources/localization/eng/MiniExpansion-UI-Strings.json");
         
-        logger.info("Done edittting strings");
+        logger.info("Done editing strings");
     }
     
 
