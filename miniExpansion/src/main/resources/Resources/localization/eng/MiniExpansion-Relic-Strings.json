@@ -42,9 +42,11 @@
 
   "miniExpansion:SetOfShip": {
     "NAME": "Set of Ship",
-    "FLAVOR": "You collected the set of ship",
+    "FLAVOR": "This exquisite model ship is heavier than you expected.",
     "DESCRIPTIONS": [
-      "..."
+      "Set Bonus: ",
+      "Start each combat with #b",
+      " #yminiexpansion:Metallicize."
     ]
   }
 }

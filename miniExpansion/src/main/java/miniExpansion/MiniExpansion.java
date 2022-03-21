@@ -1,21 +1,20 @@
 package miniExpansion;
 
-import basemod.*;
-import basemod.interfaces.*;
+import basemod.BaseMod;
+import basemod.ModLabeledToggleButton;
+import basemod.ModPanel;
 import basemod.helpers.RelicType;
+import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
-import miniExpansion.relics.BottledPlaceholderRelic;
 import miniExpansion.relics.RunicPentagon;
 import miniExpansion.relics.SetOfShip;
 import miniExpansion.util.IDCheckDontTouchPls;
@@ -28,18 +27,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
-/*
- * With that out of the way:
- * Welcome to this super over-commented Slay the Spire modding base.
- * Use it to make your own mod of any type. - If you want to add any standard in-game content (character,
- * cards, relics), this is a good starting point.
- * It features 1 character with a minimal set of things: 1 card of each type, 1 debuff, couple of relics, etc.
- * If you're new to modding, you basically *need* the BaseMod wiki for whatever you wish to add
- * https://github.com/daviscook477/BaseMod/wiki - work your way through with this base.
- * Feel free to use this in any way you like, of course. MIT licence applies. Happy modding!
- *
- * And pls. Read the comments.
- */
+
 
 @SpireInitializer
 public class MiniExpansion implements
@@ -65,42 +53,9 @@ public class MiniExpansion implements
     private static final String DESCRIPTION = "A mini expansion to Slay the Spire.";
     
     // =============== INPUT TEXTURE LOCATION =================
-    
-    // Colors (RGB)
-    // Character Color
-    public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
-    
-    // Potion Colors in RGB
-    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
-    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
-    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
-  
-    // Card backgrounds - The actual rectangular card.
-    private static final String ATTACK_DEFAULT_GRAY = "Resources/images/512/bg_attack_default_gray.png";
-    private static final String SKILL_DEFAULT_GRAY = "Resources/images/512/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY = "Resources/images/512/bg_power_default_gray.png";
-    
-    private static final String ENERGY_ORB_DEFAULT_GRAY = "Resources/images/512/card_default_gray_orb.png";
-    private static final String CARD_ENERGY_ORB = "Resources/images/512/card_small_orb.png";
-    
-    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "Resources/images/1024/bg_attack_default_gray.png";
-    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "Resources/images/1024/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "Resources/images/1024/bg_power_default_gray.png";
-    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "Resources/images/1024/card_default_gray_orb.png";
-    
-    // Character assets
-    private static final String THE_DEFAULT_BUTTON = "Resources/images/charSelect/DefaultCharacterButton.png";
-    private static final String THE_DEFAULT_PORTRAIT = "Resources/images/charSelect/DefaultCharacterPortraitBG.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "Resources/images/char/defaultCharacter/shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "Resources/images/char/defaultCharacter/shoulder2.png";
-    public static final String THE_DEFAULT_CORPSE = "Resources/images/char/defaultCharacter/corpse.png";
-    
+
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "Resources/images/Badge.png";
-    
-    // Atlas and JSON files for the Animations
-    public static final String THE_DEFAULT_SKELETON_ATLAS = "Resources/images/char/defaultCharacter/skeleton.atlas";
-    public static final String THE_DEFAULT_SKELETON_JSON = "Resources/images/char/defaultCharacter/skeleton.json";
     
     // =============== MAKE IMAGE PATHS =================
     
@@ -112,13 +67,9 @@ public class MiniExpansion implements
         return "Resources/images/relics/" + resourcePath;
     }
     
-    public static String makeRelicOutlinePath(String resourcePath) {
-        return "Resources/images/relics/outline/" + resourcePath;
-    }
+    public static String makeRelicOutlinePath(String resourcePath) { return "Resources/images/relics/outline/" + resourcePath; }
     
-    public static String makeOrbPath(String resourcePath) {
-        return "Resources/images/orbs/" + resourcePath;
-    }
+    public static String makeOrbPath(String resourcePath) { return "Resources/images/orbs/" + resourcePath; }
     
     public static String makePowerPath(String resourcePath) {
         return "Resources/images/powers/" + resourcePath;
@@ -140,7 +91,6 @@ public class MiniExpansion implements
         BaseMod.subscribe(this);
 
         setModID("miniExpansion");
-        // cool
         
         // 1. Go to your resources folder in the project panel, and refactor> rename theDefaultResources to
         // yourModIDResources.
@@ -187,7 +137,6 @@ public class MiniExpansion implements
     // ====== NO EDIT AREA ======
     // DON'T TOUCH THIS STUFF. IT IS HERE FOR STANDARDIZATION BETWEEN MODS AND TO ENSURE GOOD CODE PRACTICES.
     // IF YOU MODIFY THIS I WILL HUNT YOU DOWN AND DOWNVOTE YOUR MOD ON WORKSHOP
-    
     public static void setModID(String ID) { // DON'T EDIT
         Gson coolG = new Gson(); // EY DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i hate u Gdx.files
@@ -226,7 +175,6 @@ public class MiniExpansion implements
             }// NO
         }// NO
     }// NO
-    
     // ====== YOU CAN EDIT AGAIN ======
     
     
@@ -252,7 +200,6 @@ public class MiniExpansion implements
 //
 //        receiveEditPotions();
 //        logger.info("Added " + TheDefault.Enums.THE_DEFAULT.toString());
-
     }
 
     
@@ -358,7 +305,6 @@ public class MiniExpansion implements
 //        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
-        BaseMod.addRelic(new BottledPlaceholderRelic(), RelicType.SHARED);
         BaseMod.addRelic(new RunicPentagon(), RelicType.SHARED);
         BaseMod.addRelic(new SetOfShip(), RelicType.SHARED);
         
@@ -420,39 +366,30 @@ public class MiniExpansion implements
     public void receiveEditStrings() {
         logger.info("You seeing this?");
         logger.info("Beginning to edit strings for mod with ID: " + getModID());
-        
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
                 "Resources/localization/eng/MiniExpansion-Card-Strings.json");
-        
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
                 "Resources/localization/eng/MiniExpansion-Power-Strings.json");
-        
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
                 "Resources/localization/eng/MiniExpansion-Relic-Strings.json");
-        
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
                 "Resources/localization/eng/MiniExpansion-Event-Strings.json");
-        
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
                 "Resources/localization/eng/MiniExpansion-Potion-Strings.json");
-        
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
                 "Resources/localization/eng/MiniExpansion-Character-Strings.json");
-        
         // OrbStrings
         BaseMod.loadCustomStringsFile(OrbStrings.class,
                 "Resources/localization/eng/MiniExpansion-Orb-Strings.json");
-
         // UI
         BaseMod.loadCustomStringsFile(UIStrings.class,
                 "Resources/localization/eng/MiniExpansion-UI-Strings.json");
-        
         logger.info("Done editing strings");
     }
     

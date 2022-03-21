@@ -36,4 +36,8 @@ public class SetOfShip extends CustomRelic {
         this.addToTop(new ApplyPowerAction(p, p, new MetallicizePower(p, 3), 3));
         this.addToTop(new RelicAboveCreatureAction(p, this));
     }
+
+    // Description
+    @Override
+    public String getUpdatedDescription() { return DESCRIPTIONS[0] + DESCRIPTIONS[1] + 3 + DESCRIPTIONS[2]; }
 }

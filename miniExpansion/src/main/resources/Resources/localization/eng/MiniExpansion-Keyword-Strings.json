@@ -16,5 +16,12 @@
       "multikeyword"
     ],
     "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
+  },
+  {
+    "NAMES": [
+      "metallicize",
+      "metallicizes"
+    ],
+    "DESCRIPTION": "At the end of your turn, gain the same amount of #yBlock."
   }
 ]
