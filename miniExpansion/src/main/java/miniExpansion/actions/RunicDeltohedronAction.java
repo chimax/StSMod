@@ -11,14 +11,14 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import miniExpansion.MiniExpansion;
 
-public class RunicPentagonAction extends AbstractGameAction {
+public class RunicDeltohedronAction extends AbstractGameAction {
 
-    public static final String ID = MiniExpansion.makeID(RunicPentagonAction.class.getSimpleName());
+    public static final String ID = MiniExpansion.makeID(RunicDeltohedronAction.class.getSimpleName());
     public static final UIStrings UITEXT = CardCrawlGame.languagePack.getUIString(ID);
 
     private boolean cardSelected;
 
-    public RunicPentagonAction() {
+    public RunicDeltohedronAction() {
         this.setValues(AbstractDungeon.player, AbstractDungeon.player, 20);
         this.cardSelected = false;
     }

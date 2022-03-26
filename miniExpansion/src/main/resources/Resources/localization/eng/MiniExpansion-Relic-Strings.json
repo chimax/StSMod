@@ -32,11 +32,20 @@
     ]
   },
 
-  "miniExpansion:RunicPentagon": {
-    "NAME": "Runic Pentagon",
+  "miniExpansion:RunicDeltohedron": {
+    "NAME": "Runic Deltohedron",
     "FLAVOR": "The runes are indecipherable.",
     "DESCRIPTIONS": [
       "At the end of your turn, you may shuffle any number of cards into your draw pile. If you do so, draw #b1 additional cards next turn."
+    ]
+  },
+
+  "miniExpansion:AnglerfishFlashlight": {
+    "NAME": "Anglerfish Flashlight",
+    "FLAVOR": "Looks unpleasant. You wonder why someone designed it so.",
+    "DESCRIPTIONS": [
+      "Whenever you use a potion, gain #b",
+      " #yGold."
     ]
   },
 

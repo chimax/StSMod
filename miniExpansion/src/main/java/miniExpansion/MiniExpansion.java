@@ -15,7 +15,8 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
-import miniExpansion.relics.RunicPentagon;
+import miniExpansion.relics.AnglerfishFlashlight;
+import miniExpansion.relics.RunicDeltohedron;
 import miniExpansion.relics.SetOfShip;
 import miniExpansion.util.IDCheckDontTouchPls;
 import miniExpansion.util.TextureLoader;
@@ -305,13 +306,16 @@ public class MiniExpansion implements
 //        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
-        BaseMod.addRelic(new RunicPentagon(), RelicType.SHARED);
+        BaseMod.addRelic(new RunicDeltohedron(), RelicType.SHARED);
         BaseMod.addRelic(new SetOfShip(), RelicType.SHARED);
+        BaseMod.addRelic(new AnglerfishFlashlight(), RelicType.SHARED);
         
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
         // (the others are all starters so they're marked as seen in the character file)
 //        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+
+
         logger.info("Done adding relics!");
     }
     

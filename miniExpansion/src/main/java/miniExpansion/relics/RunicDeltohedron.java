@@ -5,43 +5,31 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import miniExpansion.MiniExpansion;
-import miniExpansion.actions.RunicPentagonAction;
+import miniExpansion.actions.RunicDeltohedronAction;
 import miniExpansion.util.TextureLoader;
 
 import static miniExpansion.MiniExpansion.makeRelicOutlinePath;
 import static miniExpansion.MiniExpansion.makeRelicPath;
 
-public class RunicPentagon extends CustomRelic {
+public class RunicDeltohedron extends CustomRelic {
     /*
      * At the end of your turn, you may shuffle any number of cards into your draw pile. If you do so, draw #b1 additional cards next turn.
      */
 
     // ID, images, text.
-    public static final String ID = MiniExpansion.makeID("RunicPentagon");
+    public static final String ID = MiniExpansion.makeID("RunicDeltohedron");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Heart.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Heart.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Deltohedron.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Deltohedron.png"));
 
-    public RunicPentagon() {
+    public RunicDeltohedron() {
         super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.BOSS, AbstractRelic.LandingSound.HEAVY);
     }
-
-//    // Gain 1 energy on equip.
-//    @Override
-//    public void onEquip() {
-//        ++AbstractDungeon.player.masterHandSize;
-//    }
-//
-//    // Lose 1 energy on unequip.
-//    @Override
-//    public void onUnequip() {
-//        --AbstractDungeon.player.masterHandSize;
-//    }
 
     @Override
     public void onPlayerEndTurn() {
         flash();
-        AbstractDungeon.actionManager.addToBottom(new RunicPentagonAction());
+        AbstractDungeon.actionManager.addToBottom(new RunicDeltohedronAction());
     }
 
     // Description
