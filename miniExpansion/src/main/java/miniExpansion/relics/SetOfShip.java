@@ -16,7 +16,7 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 
 public class SetOfShip extends CustomRelic {
     /*
-     *
+     * Start each combat with 3 Metallicize
      */
 
     // ID, images, text.

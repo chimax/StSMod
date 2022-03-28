@@ -1,6 +1,6 @@
 {
-  "miniExpansion:RunicPentagonAction": {
-    "NAME": "Runic Pentagon Action",
+  "miniExpansion:RunicDeltohedronAction": {
+    "NAME": "Runic Deltohedron Action",
     "TEXT": ["Shuffle"]
   }
 }

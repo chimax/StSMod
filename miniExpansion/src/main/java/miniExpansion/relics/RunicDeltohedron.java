@@ -2,6 +2,7 @@ package miniExpansion.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import miniExpansion.MiniExpansion;
@@ -28,8 +29,9 @@ public class RunicDeltohedron extends CustomRelic {
 
     @Override
     public void onPlayerEndTurn() {
-        flash();
-        AbstractDungeon.actionManager.addToBottom(new RunicDeltohedronAction());
+        this.flash();
+        this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        this.addToBot(new RunicDeltohedronAction());
     }
 
     // Description

@@ -2,6 +2,7 @@ package miniExpansion.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -32,6 +33,7 @@ public class AnglerfishFlashlight extends CustomRelic {
     public void onUsePotion() {
         flash();
         AbstractDungeon.player.gainGold(7);
+        CardCrawlGame.sound.play("GOLD_GAIN_5", 0.1F);
     }
 
     @Override
