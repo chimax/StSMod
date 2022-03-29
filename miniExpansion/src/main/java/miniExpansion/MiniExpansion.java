@@ -15,9 +15,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
-import miniExpansion.relics.AnglerfishFlashlight;
-import miniExpansion.relics.RunicDeltohedron;
-import miniExpansion.relics.SetOfShip;
+import miniExpansion.relics.*;
 import miniExpansion.util.IDCheckDontTouchPls;
 import miniExpansion.util.TextureLoader;
 import org.apache.logging.log4j.LogManager;
@@ -307,8 +305,11 @@ public class MiniExpansion implements
         
         // This adds a relic to the Shared pool. Every character can find this relic.
         BaseMod.addRelic(new RunicDeltohedron(), RelicType.SHARED);
+        BaseMod.addRelic(new AnglerfishLantern(), RelicType.SHARED);
+
         BaseMod.addRelic(new SetOfShip(), RelicType.SHARED);
-        BaseMod.addRelic(new AnglerfishFlashlight(), RelicType.SHARED);
+        BaseMod.addRelic(new SetOfNinja(), RelicType.SHARED);
+        BaseMod.addRelic(new SetOfFish(), RelicType.SHARED);
         
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game

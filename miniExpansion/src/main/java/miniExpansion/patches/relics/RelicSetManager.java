@@ -5,9 +5,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import miniExpansion.relics.SetOfShip;
-import miniExpansion.relicsets.AbstractRelicSet;
-import miniExpansion.relicsets.ShipSet;
+import miniExpansion.relicsets.*;
 
 import java.util.ArrayList;
 
@@ -18,6 +16,8 @@ public class RelicSetManager {
         relicSets = new ArrayList<>();
         // Add relic sets
         relicSets.add(new ShipSet());
+        relicSets.add(new NinjaSet());
+        relicSets.add(new FishSet());
     }
 
     // Update relics to add and remove arraylists based on completeness

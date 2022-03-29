@@ -18,11 +18,14 @@ import org.apache.logging.log4j.Logger;
 public class DebugPatch {
     private static final Logger logger = LogManager.getLogger(DebugPatch.class.getName());
 
-//    // Generate certain relic for debugging
-//
+    // Generate certain relic for debugging
+
 //    @SpirePatch(clz = AbstractDungeon.class, method = "returnRandomRelicKey")
 //    public static class MyRelicPatch {
 //        public static String Postfix(String __result, AbstractRelic.RelicTier tier){
+////            for (String s : AbstractDungeon.bossRelicPool) {
+////                logger.info(s);
+////            }
 //            __result = "HornCleat";
 //            return __result;
 //        }

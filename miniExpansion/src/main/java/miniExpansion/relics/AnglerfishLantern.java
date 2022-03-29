@@ -12,18 +12,18 @@ import miniExpansion.util.TextureLoader;
 import static miniExpansion.MiniExpansion.makeRelicOutlinePath;
 import static miniExpansion.MiniExpansion.makeRelicPath;
 
-public class AnglerfishFlashlight extends CustomRelic {
+public class AnglerfishLantern extends CustomRelic {
 
     /*
      * Whenever you use a potion, gain 7 gold
      */
 
     // ID, images, text.
-    public static final String ID = MiniExpansion.makeID("AnglerfishFlashlight");
+    public static final String ID = MiniExpansion.makeID("AnglerfishLantern");
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Anglerfish.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Anglerfish.png"));
 
-    public AnglerfishFlashlight() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.COMMON, AbstractRelic.LandingSound.FLAT); }
+    public AnglerfishLantern() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.COMMON, AbstractRelic.LandingSound.FLAT); }
 
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0] + 7 + this.DESCRIPTIONS[1];

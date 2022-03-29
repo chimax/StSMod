@@ -1,5 +1,6 @@
 package miniExpansion.actions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -27,7 +28,7 @@ public class RunicDeltohedronAction extends AbstractGameAction {
     private boolean cardSelected;
 
     public RunicDeltohedronAction() {
-        this.setValues(AbstractDungeon.player, AbstractDungeon.player, 10);
+        this.setValues(AbstractDungeon.player, AbstractDungeon.player, BaseMod.MAX_HAND_SIZE);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.cardSelected = false;
         this.savedCardQueue = new ArrayList<>();

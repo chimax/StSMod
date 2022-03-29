@@ -40,8 +40,8 @@
     ]
   },
 
-  "miniExpansion:AnglerfishFlashlight": {
-    "NAME": "Anglerfish Flashlight",
+  "miniExpansion:AnglerfishLantern": {
+    "NAME": "Anglerfish Lantern",
     "FLAVOR": "Looks unpleasant. You wonder why someone designed it so.",
     "DESCRIPTIONS": [
       "Whenever you use a potion, gain #b",
@@ -56,6 +56,24 @@
       "Set Bonus: ",
       "Start each combat with #b",
       " #yminiexpansion:Metallicize."
+    ]
+  },
+
+  "miniExpansion:SetOfNinja": {
+    "NAME": "Set of Ninja",
+    "FLAVOR": "Blah",
+    "DESCRIPTIONS": [
+      "Set Bonus: ",
+      "Blah"
+    ]
+  },
+
+  "miniExpansion:SetOfFish": {
+    "NAME": "Set of Fish",
+    "FLAVOR": "Blah",
+    "DESCRIPTIONS": [
+      "Set Bonus: ",
+      "Blah"
     ]
   }
 }
