@@ -1,5 +1,6 @@
 package miniExpansion.neow;
 
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import miniExpansion.neow.intro.ScreenIntro;
 
 import java.util.ArrayList;
@@ -7,13 +8,13 @@ import java.util.ArrayList;
 public class NeowScreenManager {
     public static ArrayList<AbstractNeowScreen> customScreens;
     public static ArrayList<Integer> customScreenIndices;
-    private static int nextIndex;
+    private static int nextNumber;
 
     public static void initManager() {
         customScreens = new ArrayList<>();
         customScreenIndices = new ArrayList<>();
         // Init next available ID. Let us start from 20
-        nextIndex = 20;
+        nextNumber = 20;
         // Add screens
         addScreen(new ScreenIntro());
         // Link screens
@@ -22,10 +23,10 @@ public class NeowScreenManager {
 
     // Find next unused screen index
     public static int assignIndex() {
-        while (customScreenIndices.contains(nextIndex) || nextIndex <= 3 ||
-                nextIndex == 10 || nextIndex == 99 || nextIndex == 999) { nextIndex++; }
-        int thisIndex = nextIndex;
-        nextIndex++;
+        while (customScreenIndices.contains(nextNumber) || nextNumber <= 3 ||
+                nextNumber == 10 || nextNumber == 99 || nextNumber == 999) { nextNumber++; }
+        int thisIndex = nextNumber;
+        nextNumber++;
         return thisIndex;
     }
 
@@ -37,20 +38,41 @@ public class NeowScreenManager {
         customScreenIndices.add(thisIndex);
     }
 
-    // Get index of a custom screen in manager given its string ID
-    public static int getScreenIndex(String screenID) {
-        for (int i = 0; i < customScreens.size(); i++) {
-            if (customScreens.get(i).screenID.equals(screenID)) {
-                return i;
+    // Get a custom screen given its currScreen
+    public static AbstractNeowScreen getScreen(int currScreen) {
+        for (AbstractNeowScreen s : customScreens) {
+            if (s.currScreen == currScreen) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    //  Get a custom screen given its ID
+    public static AbstractNeowScreen getScreen(String screenID) {
+        for (AbstractNeowScreen s : customScreens) {
+            if (s.screenID.equals(screenID)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    // Get currScreen of a custom screen given its string ID
+    public static int getScreenNumber(String screenID) {
+        for (AbstractNeowScreen s : customScreens) {
+            if (s.screenID.equals(screenID)) {
+                return s.currScreen;
             }
         }
         return 99;
     }
 
+
     // Set up the nextScreen for each custom screen in manager
     public static void linkScreenIndices() {
         for (AbstractNeowScreen s : customScreens) {
-            s.nextScreen = getScreenIndex(s.nextScreenID);
+            s.nextScreen = getScreenNumber(s.nextScreenID);
         }
     }
 }

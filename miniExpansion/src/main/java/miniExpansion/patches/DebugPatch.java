@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.status.Burn;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.events.shrines.Nloth;
@@ -48,10 +49,10 @@ public class DebugPatch {
 //        }
 //    }
 //
-//    @SpirePatch(clz = NeowReward.class, method = "update")
-//    public static class MyNeowRewardDebugPatch2 {
-//        public static void Prefix(NeowReward __instance) {
-//            //throw new RuntimeException("Stop here!");
+//    @SpirePatch(clz = CardCrawlGame.class, method = "loadPostCombat")
+//    public static class MyExceptionPatch {
+//        public static void Prefix(CardCrawlGame __instance) {
+//            throw new RuntimeException("Stop here!");
 //        }
 //    }
 
