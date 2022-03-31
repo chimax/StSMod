@@ -25,7 +25,7 @@ public class RewardSavePatch {
         public static void MySaveFileInsert(SaveFile __instance, SaveFile.SaveType type) {
             for (RewardItem r : AbstractDungeon.getCurrRoom().rewards) {
                 if (r.type == CustomGold.CUSTOM_GOLD) {
-                    __instance.combat_rewards.add(new RewardSave(r.type.toString(), (String) null, r.goldAmt, r.bonusGold));
+                    __instance.combat_rewards.add(new RewardSave(r.type.toString(), null, r.goldAmt, r.bonusGold));
                 }
             }
         }

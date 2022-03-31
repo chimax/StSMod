@@ -91,29 +91,14 @@ public class MiniExpansion implements
 
         setModID("miniExpansion");
         
-        // 1. Go to your resources folder in the project panel, and refactor> rename theDefaultResources to
-        // yourModIDResources.
-        
-        // 2. Click on the localization > eng folder and press ctrl+shift+r, then select "Directory" (rather than in Project) and press alt+c (or mark the match case option)
-        // replace all instances of theDefault with yourModID, and all instances of thedefault with yourmodid (the same but all lowercase).
-        // Because your mod ID isn't the default. Your cards (and everything else) should have Your mod id. Not mine.
-        // It's important that the mod ID prefix for keywords used in the cards descriptions is lowercase!
-
-        // 3. Scroll down (or search for "ADD CARDS") till you reach the ADD CARDS section, and follow the instructions
-
-        // 4. FINALLY and most importantly: Scroll up a bit. You may have noticed the image locations above don't use getModID()
-        // Change their locations to reflect your actual ID rather than theDefault. They get loaded before getID is a thing.
-        
         logger.info("Done subscribing");
         
 //        logger.info("Creating the color " + TheDefault.Enums.COLOR_GRAY.toString());
-//
 //        BaseMod.addColor(TheDefault.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
 //                DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
 //                ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
 //                ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
 //                ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, CARD_ENERGY_ORB);
-//
 //        logger.info("Done creating the color");
         
         
@@ -135,45 +120,40 @@ public class MiniExpansion implements
     
     // ====== NO EDIT AREA ======
     // DON'T TOUCH THIS STUFF. IT IS HERE FOR STANDARDIZATION BETWEEN MODS AND TO ENSURE GOOD CODE PRACTICES.
-    // IF YOU MODIFY THIS I WILL HUNT YOU DOWN AND DOWNVOTE YOUR MOD ON WORKSHOP
-    public static void setModID(String ID) { // DON'T EDIT
-        Gson coolG = new Gson(); // EY DON'T EDIT THIS
-        //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i hate u Gdx.files
-        InputStream in = MiniExpansion.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THIS ETHER
+    public static void setModID(String ID) {
+        Gson coolG = new Gson();
+        InputStream in = MiniExpansion.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json");
         assert in != null;
-        IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // OR THIS, DON'T EDIT IT
-        logger.info("You are attempting to set your mod ID as: " + ID); // NO WHY
-        if (ID.equals(EXCEPTION_STRINGS.DEFAULTID)) { // DO *NOT* CHANGE THIS ESPECIALLY, TO EDIT YOUR MOD ID, SCROLL UP JUST A LITTLE, IT'S JUST ABOVE
-            throw new RuntimeException(EXCEPTION_STRINGS.EXCEPTION); // THIS ALSO DON'T EDIT
-        } else if (ID.equals(EXCEPTION_STRINGS.DEVID)) { // NO
-            modID = EXCEPTION_STRINGS.DEFAULTID; // DON'T
-        } else { // NO EDIT AREA
-            modID = ID; // DON'T WRITE OR CHANGE THINGS HERE NOT EVEN A LITTLE
-        } // NO
-        logger.info("Success! ID is " + modID); // WHY WOULD U WANT IT NOT TO LOG?? DON'T EDIT THIS.
-    } // NO
+        IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class);
+        logger.info("You are attempting to set your mod ID as: " + ID);
+        if (ID.equals(EXCEPTION_STRINGS.DEFAULTID)) {
+            throw new RuntimeException(EXCEPTION_STRINGS.EXCEPTION);
+        } else if (ID.equals(EXCEPTION_STRINGS.DEVID)) {
+            modID = EXCEPTION_STRINGS.DEFAULTID;
+        } else {
+            modID = ID;
+        }
+        logger.info("Success! ID is " + modID);
+    }
     
-    public static String getModID() { // NO
-        return modID; // DOUBLE NO
-    } // NU-UH
+    public static String getModID() { return modID; }
     
-    private static void pathCheck() { // ALSO NO
-        Gson coolG = new Gson(); // NOPE DON'T EDIT THIS
-        //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i still hate u btw Gdx.files
-        InputStream in = MiniExpansion.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THISSSSS
+    private static void pathCheck() {
+        Gson coolG = new Gson();
+        InputStream in = MiniExpansion.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json");
         assert in != null;
-        IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // NAH, NO EDIT
-        String packageName = MiniExpansion.class.getPackage().getName(); // STILL NO EDIT ZONE
-        FileHandle resourcePathExists = Gdx.files.internal("Resources"); // PLEASE DON'T EDIT THINGS HERE, THANKS
-        if (!modID.equals(EXCEPTION_STRINGS.DEVID)) { // LEAVE THIS EDIT-LESS
-            if (!packageName.equals(getModID())) { // NOT HERE ETHER
-                throw new RuntimeException(EXCEPTION_STRINGS.PACKAGE_EXCEPTION + getModID()); // THIS IS A NO-NO
-            } // WHY WOULD U EDIT THIS
-            if (!resourcePathExists.exists()) { // DON'T CHANGE THIS
-                throw new RuntimeException(EXCEPTION_STRINGS.RESOURCE_FOLDER_EXCEPTION + "Resources"); // NOT THIS
-            }// NO
-        }// NO
-    }// NO
+        IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class);
+        String packageName = MiniExpansion.class.getPackage().getName();
+        FileHandle resourcePathExists = Gdx.files.internal("Resources");
+        if (!modID.equals(EXCEPTION_STRINGS.DEVID)) {
+            if (!packageName.equals(getModID())) {
+                throw new RuntimeException(EXCEPTION_STRINGS.PACKAGE_EXCEPTION + getModID());
+            }
+            if (!resourcePathExists.exists()) {
+                throw new RuntimeException(EXCEPTION_STRINGS.RESOURCE_FOLDER_EXCEPTION + "Resources");
+            }
+        }
+    }
     // ====== YOU CAN EDIT AGAIN ======
     
     

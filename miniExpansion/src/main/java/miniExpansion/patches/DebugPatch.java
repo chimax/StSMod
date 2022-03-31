@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.events.shrines.Nloth;
+import com.megacrit.cardcrawl.neow.NeowReward;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import miniExpansion.patches.relics.RelicListUpdatePatch;
@@ -21,7 +22,7 @@ public class DebugPatch {
     // Generate certain relic for debugging
 
 //    @SpirePatch(clz = AbstractDungeon.class, method = "returnRandomRelicKey")
-//    public static class MyRelicPatch {
+//    public static class MyRelicDebugPatch {
 //        public static String Postfix(String __result, AbstractRelic.RelicTier tier){
 ////            for (String s : AbstractDungeon.bossRelicPool) {
 ////                logger.info(s);
@@ -34,15 +35,34 @@ public class DebugPatch {
 //    // Generate certain event room for debugging
 //
 //    @SpirePatch(clz = AbstractDungeon.class, method = "generateEvent")
-//    public static class MyEventRoomPatch {
+//    public static class MyEventRoomDebugPatch {
 //        public static AbstractEvent Postfix(AbstractEvent __result, Random rng) {
 //            __result = new Nloth();
 //            return __result;
 //        }
 //    }
 
+//    @SpirePatch(clz = NeowReward.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {boolean.class})
+//    public static class MyNeowRewardDebugPatch {
+//        public static void Postfix(NeowReward __instance, boolean firstMini) {
+//        }
+//    }
+//
+//    @SpirePatch(clz = NeowReward.class, method = "update")
+//    public static class MyNeowRewardDebugPatch2 {
+//        public static void Prefix(NeowReward __instance) {
+//            //throw new RuntimeException("Stop here!");
+//        }
+//    }
+
+
+
+
+
+    // Debugging end of turn burn auto use
+
 //    @SpirePatch(clz = Burn.class, method = "triggerOnEndOfTurnForPlayingCard")
-//    public static class MyBurnPatch {
+//    public static class MyBurnDebugPatch {
 //        public static void Postfix(Burn __instance) {
 //            logger.info("!!!");
 //            logger.info("Burn on end of turn triggered!");
@@ -50,7 +70,7 @@ public class DebugPatch {
 //    }
 
 //    @SpirePatch(clz = GameActionManager.class, method = "getNextAction")
-//    public static class MyActionPatch {
+//    public static class MyActionDebugPatch {
 //        public static void Prefix(GameActionManager __instance) {
 //            if (!__instance.actions.isEmpty() || !__instance.cardQueue.isEmpty()) {
 //                logger.info("----");
