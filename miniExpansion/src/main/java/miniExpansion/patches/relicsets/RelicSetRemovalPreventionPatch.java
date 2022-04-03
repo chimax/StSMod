@@ -1,4 +1,4 @@
-package miniExpansion.patches.relics;
+package miniExpansion.patches.relicsets;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -38,29 +38,28 @@ public class RelicSetRemovalPreventionPatch {
         @SpireInsertPatch(locator = Locator.class)
         public static void rerollRelicPatchMethod(Nloth __instance, @ByRef AbstractRelic[] ___choice1, @ByRef AbstractRelic[] ___choice2){
             if (RelicSetManager.relicSets == null) { RelicSetManager.initManager(); }
-            ArrayList<AbstractRelic> relics = new ArrayList();
-            relics.addAll(AbstractDungeon.player.relics);
+            ArrayList<AbstractRelic> relics = new ArrayList(AbstractDungeon.player.relics);
             Collections.shuffle(relics, new Random(AbstractDungeon.miscRng.randomLong()));
             int nextChoice = 2;
             if (RelicSetManager.isSetReward(___choice1[0])) {
-                while (nextChoice < relics.size() && RelicSetManager.isSetReward((AbstractRelic)relics.get(nextChoice))) {
+                while (nextChoice < relics.size() && RelicSetManager.isSetReward(relics.get(nextChoice))) {
                     nextChoice++;
                 }
                 if (nextChoice >= relics.size()) {
                     logger.info("WHY ARE ALL RELICS SET REWARDS???");
                 } else {
-                    ___choice1[0] = (AbstractRelic)relics.get(nextChoice);
+                    ___choice1[0] = relics.get(nextChoice);
                     nextChoice++;
                 }
             }
             if (RelicSetManager.isSetReward(___choice2[0])) {
-                while (nextChoice < relics.size() && RelicSetManager.isSetReward((AbstractRelic)relics.get(nextChoice))) {
+                while (nextChoice < relics.size() && RelicSetManager.isSetReward(relics.get(nextChoice))) {
                     nextChoice++;
                 }
                 if (nextChoice >= relics.size()) {
                     logger.info("WHY ARE ALL RELICS SET REWARDS???");
                 } else {
-                    ___choice2[0] = (AbstractRelic)relics.get(nextChoice);
+                    ___choice2[0] = relics.get(nextChoice);
                 }
             }
         }

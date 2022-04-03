@@ -287,6 +287,14 @@ public class MiniExpansion implements
         BaseMod.addRelic(new RunicDeltohedron(), RelicType.SHARED);
         BaseMod.addRelic(new AnglerfishLantern(), RelicType.SHARED);
 
+        BaseMod.addRelic(new SinPride(), RelicType.SHARED);
+        BaseMod.addRelic(new SinGreed(), RelicType.SHARED);
+        BaseMod.addRelic(new SinLust(), RelicType.SHARED);
+        BaseMod.addRelic(new SinWrath(), RelicType.SHARED);
+        BaseMod.addRelic(new SinEnvy(), RelicType.SHARED);
+        BaseMod.addRelic(new SinGluttony(), RelicType.SHARED);
+        BaseMod.addRelic(new SinSloth(), RelicType.SHARED);
+
         BaseMod.addRelic(new SetOfShip(), RelicType.SHARED);
         BaseMod.addRelic(new SetOfNinja(), RelicType.SHARED);
         BaseMod.addRelic(new SetOfFish(), RelicType.SHARED);

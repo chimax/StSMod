@@ -1,4 +1,4 @@
-package miniExpansion.patches.relics;
+package miniExpansion.patches.relicsets;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
