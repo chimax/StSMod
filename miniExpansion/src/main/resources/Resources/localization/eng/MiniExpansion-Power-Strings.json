@@ -1,10 +1,22 @@
 {
-"miniExpansion:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
-},
-"miniExpansion:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
-}
+  "miniExpansion:CommonPower": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
+  },
+  "miniExpansion:RarePower": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+  },
+
+
+  "miniExpansion:NegativeSlowPower": {
+    "NAME": "Slow Power",
+    "DESCRIPTIONS": [
+      "Whenever you play a card, ",
+      " receives #b10% less damage this turn.",
+      " (Receives #b",
+      "% more damage)",
+      "% less damage)"
+    ]
+  }
 }

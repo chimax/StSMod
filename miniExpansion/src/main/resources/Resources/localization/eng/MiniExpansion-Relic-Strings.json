@@ -49,7 +49,7 @@
     "FLAVOR": "Looks unpleasant. You wonder why someone designed it so.",
     "DESCRIPTIONS": [
       "Whenever you use a potion, gain #b",
-      " #yGold."
+      " #yGold[#fff8df].[]"
     ]
   },
 
@@ -60,7 +60,7 @@
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
       "At the start of your turn, gain #b",
-      " #ySlow. You lose #b1 #ySlow whenever you play a card (minimum #b-5 #ySlow)."
+      " #ySlow. You lose #b1 #ySlow whenever you play a card (minimum #b-5 #ySlow[#fff8df]).[]"
     ]
   },
 
@@ -78,7 +78,7 @@
     "DESCRIPTIONS": [
       "At the start of each combat, lose #b",
       " #yDexterity and gain #b",
-      " #yArtifact."
+      " #yArtifact[#fff8df].[]"
     ]
   },
 
@@ -131,7 +131,7 @@
     "DESCRIPTIONS": [
       "Set Bonus: ",
       "Start each combat with #b",
-      " #yminiexpansion:Metallicize."
+      " #yminiexpansion:Metallicize[#fff8df].[]"
     ]
   },
 
@@ -140,7 +140,7 @@
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
       "Set Bonus: ",
-      "At the start of your turn, set the counter of Kunai and Shuriken to #b1."
+      "At the start of your turn, set the counter of Kunai and Shuriken to #b1[#fff8df].[]"
     ]
   },
 

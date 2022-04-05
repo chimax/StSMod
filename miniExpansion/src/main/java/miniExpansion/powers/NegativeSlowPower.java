@@ -3,22 +3,41 @@ package miniExpansion.powers;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.SlowPower;
+import miniExpansion.MiniExpansion;
 
 public class NegativeSlowPower extends SlowPower {
 
-    // TODO: Define when this is buff and when is debuff
+    public static final String ID = MiniExpansion.makeID("NegativeSlowPower");
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(ID);
+    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
     public NegativeSlowPower(AbstractCreature owner, int amount) {
         super(owner, amount);
         this.canGoNegative = true;
     }
 
-    // TODO
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[2] + this.amount * 10 + DESCRIPTIONS[3];
+        this.description = DESCRIPTIONS[0];
+        if (!(this.owner instanceof AbstractPlayer)) {
+            this.description += FontHelper.colorString(this.owner.name, "y");
+        }
+        this.description += DESCRIPTIONS[1];
+        if (this.amount < 0) {
+            this.description += DESCRIPTIONS[2] + this.amount * -10 + DESCRIPTIONS[4];
+            this.type = PowerType.BUFF;
+        } else if (this.amount > 0) {
+            this.description += DESCRIPTIONS[2] + this.amount * 10 + DESCRIPTIONS[3];
+            this.type = PowerType.DEBUFF;
+        } else {
+            this.type = PowerType.BUFF;
+        }
     }
 
     @Override
