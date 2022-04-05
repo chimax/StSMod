@@ -16,7 +16,7 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 public class SinEnvy extends CustomRelic {
 
     /*
-     *
+     * At the start of your turn, gain 99 [E]. You cannot play cards with even number costs.
      */
 
     // ID, images, text.
@@ -26,8 +26,8 @@ public class SinEnvy extends CustomRelic {
 
     public SinEnvy() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.SPECIAL, AbstractRelic.LandingSound.MAGICAL); }
 
-    // TODO
-    // public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+
+    public String getUpdatedDescription() { return this.DESCRIPTIONS[0] + 99 + this.DESCRIPTIONS[1]; }
 
     @Override
     public void atTurnStart() {
@@ -39,7 +39,7 @@ public class SinEnvy extends CustomRelic {
     @Override
     public boolean canPlay(AbstractCard card) {
         if (card.costForTurn >= 0 && card.costForTurn % 2 == 0) {
-            card.cantUseMessage = ""; //TODO
+            card.cantUseMessage = this.DESCRIPTIONS[2];
             return false;
         } else {
             return true;

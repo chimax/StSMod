@@ -17,7 +17,7 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 public class SinLust extends CustomRelic {
 
     /*
-     *
+     * At the start of each combat, lose 5 Dexterity and gain 5 Artifact.
      */
 
     // ID, images, text.
@@ -27,8 +27,8 @@ public class SinLust extends CustomRelic {
 
     public SinLust() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.SPECIAL, AbstractRelic.LandingSound.MAGICAL); }
 
-    // TODO
-    // public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+
+     public String getUpdatedDescription() { return this.DESCRIPTIONS[0] + 5 + this.DESCRIPTIONS[1] + 5 + this.DESCRIPTIONS[2]; }
 
     @Override
     public void atBattleStart() {

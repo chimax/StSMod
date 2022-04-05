@@ -19,7 +19,7 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 public class SinPride extends CustomRelic {
 
     /*
-     *
+     * At the start of your turn, gain 7 Slow. You lose 1 Slow whenever you play a card (minimum at -5 Slow).
      */
 
     // ID, images, text.
@@ -29,8 +29,8 @@ public class SinPride extends CustomRelic {
 
     public SinPride() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.SPECIAL, AbstractRelic.LandingSound.MAGICAL); }
 
-    // TODO
-    // public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+
+    public String getUpdatedDescription() { return this.DESCRIPTIONS[0] + 7 + this.DESCRIPTIONS[1]; }
 
     @Override
     public void atTurnStart() {

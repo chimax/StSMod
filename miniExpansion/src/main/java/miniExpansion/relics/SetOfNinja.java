@@ -17,18 +17,21 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 
 public class SetOfNinja extends CustomRelic {
     /*
-     * DESCRIPTION
+     * At the start of your turn, set the counter of Kunai and Shuriken to 1.
      */
 
     // ID, images, text.
     public static final String ID = MiniExpansion.makeID("SetOfNinja");
-
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Heart.png")); //TODO
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Heart.png")); //TODO
 
     public SetOfNinja() {
         super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.SPECIAL, LandingSound.FLAT);
     }
+
+
+    @Override
+    public String getUpdatedDescription() { return this.DESCRIPTIONS[0] + this.DESCRIPTIONS[1]; }
 
     @Override
     public void atTurnStartPostDraw() {
@@ -57,7 +60,4 @@ public class SetOfNinja extends CustomRelic {
         }
     }
 
-    //TODO
-    //@Override
-    //public String getUpdatedDescription()
 }

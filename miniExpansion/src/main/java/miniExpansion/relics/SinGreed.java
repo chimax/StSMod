@@ -20,7 +20,7 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 
 public class SinGreed extends CustomRelic {
     /*
-     *
+     * Add extra gold to each combat reward. At the end of your turn, take damage equals to the sum of your gold number digits.
      */
 
     // ID, images, text.
@@ -32,8 +32,8 @@ public class SinGreed extends CustomRelic {
 
     public SinGreed() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.SPECIAL, AbstractRelic.LandingSound.MAGICAL); }
 
-    // TODO
-    // public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+
+    public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
 
     @Override
     public void onPlayerEndTurn() {

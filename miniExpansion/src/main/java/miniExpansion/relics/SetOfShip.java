@@ -16,18 +16,21 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 
 public class SetOfShip extends CustomRelic {
     /*
-     * Start each combat with 3 Metallicize
+     * Start each combat with 3 Metallicize.
      */
 
     // ID, images, text.
     public static final String ID = MiniExpansion.makeID("SetOfShip");
-
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Ship.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Ship.png"));
 
     public SetOfShip() {
         super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.SPECIAL, AbstractRelic.LandingSound.HEAVY);
     }
+
+
+    @Override
+    public String getUpdatedDescription() { return DESCRIPTIONS[0] + DESCRIPTIONS[1] + 3 + DESCRIPTIONS[2]; }
 
     @Override
     public void atBattleStart() {
@@ -37,7 +40,4 @@ public class SetOfShip extends CustomRelic {
         this.addToTop(new RelicAboveCreatureAction(p, this));
     }
 
-    // Description
-    @Override
-    public String getUpdatedDescription() { return DESCRIPTIONS[0] + DESCRIPTIONS[1] + 3 + DESCRIPTIONS[2]; }
 }

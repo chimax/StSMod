@@ -59,7 +59,8 @@
     "NAME": "Pride",
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
-      "TODO"
+      "At the start of your turn, gain #b",
+      " #ySlow. You lose #b1 #ySlow whenever you play a card (minimum #b-5 #ySlow)."
     ]
   },
 
@@ -67,7 +68,7 @@
     "NAME": "Greed",
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
-      "TODO"
+      "Add extra #yGold to each combat reward. At the end of your turn, take damage equals to the sum of your #yGold number digits."
     ]
   },
 
@@ -75,7 +76,9 @@
     "NAME": "Lust",
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
-      "TODO"
+      "At the start of each combat, lose #b",
+      " #yDexterity and gain #b",
+      " #yArtifact."
     ]
   },
 
@@ -83,7 +86,9 @@
     "NAME": "Wrath",
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
-      "TODO"
+      "While your HP is at or below #b",
+      ", you have #b",
+      " additional #yStrength and #yDexterity, but you lose #b1 HP at the end of your turn."
     ]
   },
 
@@ -91,7 +96,9 @@
     "NAME": "Envy",
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
-      "TODO"
+      "At the start of your turn, gain #b",
+      " [E] . You cannot play cards with even number costs.",
+      "I can only play cards with #rodd number cost"
     ]
   },
 
@@ -99,7 +106,8 @@
     "NAME": "Gluttony",
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
-      "TODO"
+      "Upon pickup, raise your Max HP by #b",
+      ". Every time you play a card, you lose HP equals to its cost. You can no longer #yRest at Rest Sites."
     ]
   },
 
@@ -107,7 +115,10 @@
     "NAME": "Sloth",
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
-      "TODO"
+      "If you play no card in a turn, gain #b",
+      " #yBlock. If you play #b",
+      " or more cards in a turn, you cannot play any card next turn.",
+      "I cannot play any card this turn"
     ]
   },
 
@@ -129,7 +140,7 @@
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
       "Set Bonus: ",
-      "TODO"
+      "At the start of your turn, set the counter of Kunai and Shuriken to #b1."
     ]
   },
 
@@ -138,7 +149,7 @@
     "FLAVOR": "TODO",
     "DESCRIPTIONS": [
       "Set Bonus: ",
-      "TODO"
+      "Chance to find a small amount of extra #yGold after each combat."
     ]
   }
 }

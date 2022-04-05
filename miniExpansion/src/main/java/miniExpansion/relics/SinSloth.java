@@ -18,7 +18,8 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 public class SinSloth extends CustomRelic {
 
     /*
-     *
+     * If you play no card in a turn, gain 30 Block.
+     * If you play 7 or more cards in a turn, you cannot play any card next turn.
      */
 
     // ID, images, text.
@@ -30,8 +31,7 @@ public class SinSloth extends CustomRelic {
 
     public SinSloth() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.SPECIAL, AbstractRelic.LandingSound.MAGICAL); }
 
-    // TODO
-    // public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+    public String getUpdatedDescription() { return this.DESCRIPTIONS[0] + 30 + this.DESCRIPTIONS[1] + 7 +this.DESCRIPTIONS[2]; }
 
     @Override
     public void atBattleStart() {
@@ -60,7 +60,7 @@ public class SinSloth extends CustomRelic {
     @Override
     public boolean canPlay(AbstractCard card) {
         if (this.overplayed) {
-            card.cantUseMessage = ""; //TODO
+            card.cantUseMessage = this.DESCRIPTIONS[3];
             return false;
         } else {
             return true;

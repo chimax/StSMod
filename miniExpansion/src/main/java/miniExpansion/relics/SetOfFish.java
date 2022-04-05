@@ -16,20 +16,22 @@ import static miniExpansion.MiniExpansion.*;
 
 public class SetOfFish extends CustomRelic {
     /*
-     * DESCRIPTION
+     * Chance to find a small amount of extra Gold after each combat.
      */
 
     // ID, images, text.
     public static final String ID = MiniExpansion.makeID("SetOfFish");
-
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Heart.png")); //TODO
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Heart.png")); //TODO
 
-    //private static final Logger logger = LogManager.getLogger(DebugPatch.class.getName());
     public static int GOLD_CHANCE = 50;
     private int rewardGold;
 
     public SetOfFish() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.SPECIAL, LandingSound.FLAT); }
+
+
+    @Override
+    public String getUpdatedDescription() { return this.DESCRIPTIONS[0] + this.DESCRIPTIONS[1]; }
 
     @Override
     public void onVictory() {

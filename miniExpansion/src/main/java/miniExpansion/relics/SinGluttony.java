@@ -21,7 +21,9 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 
 public class SinGluttony extends CustomRelic {
     /*
-     *
+     * Upon pickup, raise your Max HP by 600.
+     * Every time you play a card, you lose HP equals to its cost.
+     * You can no longer Rest at Rest Sites.
      */
 
     // ID, images, text.
@@ -31,8 +33,8 @@ public class SinGluttony extends CustomRelic {
 
     public SinGluttony() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.SPECIAL, AbstractRelic.LandingSound.MAGICAL); }
 
-    // TODO
-    // public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+
+    public String getUpdatedDescription() { return this.DESCRIPTIONS[0] + 600 + this.DESCRIPTIONS[1]; }
 
     @Override
     public void onEquip() {

@@ -23,7 +23,8 @@ import static miniExpansion.MiniExpansion.makeRelicPath;
 public class SinWrath extends CustomRelic {
 
     /*
-     *
+     * While your HP is at or below 10, you have 10 additional Strength and Dexterity,
+     * but you lose 1 HP at the end of your turn.
      */
 
     // ID, images, text.
@@ -35,8 +36,8 @@ public class SinWrath extends CustomRelic {
 
     public SinWrath() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.SPECIAL, AbstractRelic.LandingSound.MAGICAL); }
 
-    // TODO
-    // public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+
+    public String getUpdatedDescription() { return this.DESCRIPTIONS[0] + 10 + this.DESCRIPTIONS[1] + 10 + this.DESCRIPTIONS[2]; }
 
     @Override
     public void atBattleStart() {
