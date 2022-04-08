@@ -2,5 +2,9 @@
   "miniExpansion:RunicDeltohedronAction": {
     "NAME": "Runic Deltohedron Action",
     "TEXT": ["Shuffle"]
+  },
+  "miniExpansion:RedCandleAction": {
+    "NAME": "Red Candle Action",
+    "TEXT": ["Exhaust"]
   }
 }

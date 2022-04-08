@@ -23,15 +23,13 @@ public class RunicDeltohedron extends CustomRelic {
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Deltohedron.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Deltohedron.png"));
 
-    public RunicDeltohedron() {
-        super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.BOSS, AbstractRelic.LandingSound.HEAVY);
-    }
+    public RunicDeltohedron() { super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.BOSS, AbstractRelic.LandingSound.HEAVY); }
 
     @Override
     public void onPlayerEndTurn() {
         this.flash();
         this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        this.addToBot(new RunicDeltohedronAction());
+        this.addToBot(new RunicDeltohedronAction(AbstractDungeon.player));
     }
 
     // Description

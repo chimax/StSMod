@@ -1,8 +1,10 @@
 package miniExpansion;
 
+import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.abstracts.CustomRelic;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -15,6 +17,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import miniExpansion.actions.RunicDeltohedronAction;
 import miniExpansion.relics.*;
 import miniExpansion.util.IDCheckDontTouchPls;
 import miniExpansion.util.TextureLoader;
@@ -270,13 +273,7 @@ public class MiniExpansion implements
     @Override
     public void receiveEditRelics() {
         logger.info("Adding relics");
-
-        // Take a look at https://github.com/daviscook477/BaseMod/wiki/AutoAdd
-        // as well as
-        // https://github.com/kiooeht/Bard/blob/e023c4089cc347c60331c78c6415f489d19b6eb9/src/main/java/com/evacipated/cardcrawl/mod/bard/BardMod.java#L319
-        // for reference as to how to turn this into an "Auto-Add" rather than having to list every relic individually.
-        // Of note is that the bard mod uses it's own custom relic class (not dissimilar to our AbstractDefaultCard class for cards) that adds the 'color' field,
-        // in order to automatically differentiate which pool to add the relic too.
+        logger.info("AutoAdd sucks, adding manually");
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
 //        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
@@ -286,6 +283,7 @@ public class MiniExpansion implements
         // This adds a relic to the Shared pool. Every character can find this relic.
         BaseMod.addRelic(new RunicDeltohedron(), RelicType.SHARED);
         BaseMod.addRelic(new AnglerfishLantern(), RelicType.SHARED);
+        BaseMod.addRelic(new RedCandle(), RelicType.SHARED);
 
         BaseMod.addRelic(new SinPride(), RelicType.SHARED);
         BaseMod.addRelic(new SinGreed(), RelicType.SHARED);

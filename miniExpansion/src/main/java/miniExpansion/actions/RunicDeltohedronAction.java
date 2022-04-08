@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -24,11 +25,11 @@ public class RunicDeltohedronAction extends AbstractGameAction {
     public static final String ID = MiniExpansion.makeID(RunicDeltohedronAction.class.getSimpleName());
     public static final UIStrings UITEXT = CardCrawlGame.languagePack.getUIString(ID);
 
-    private ArrayList<AbstractCard> savedCardQueue;
+    private final ArrayList<AbstractCard> savedCardQueue;
     private boolean cardSelected;
 
-    public RunicDeltohedronAction() {
-        this.setValues(AbstractDungeon.player, AbstractDungeon.player, BaseMod.MAX_HAND_SIZE);
+    public RunicDeltohedronAction(AbstractCreature source) {
+        this.setValues(AbstractDungeon.player, source, -1);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.cardSelected = false;
         this.savedCardQueue = new ArrayList<>();
@@ -44,7 +45,7 @@ public class RunicDeltohedronAction extends AbstractGameAction {
                 this.savedCardQueue.add(c.card);
             }
             // Open hand selection screen - this will clear the card queue! (why?)
-            AbstractDungeon.handCardSelectScreen.open(UITEXT.TEXT[0], this.amount, true, true);
+            AbstractDungeon.handCardSelectScreen.open(UITEXT.TEXT[0], 99, true, true);
             this.addToBot(new WaitAction(0.25F));
             this.tickDuration();
         // All the other times
