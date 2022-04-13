@@ -275,16 +275,12 @@ public class MiniExpansion implements
         logger.info("Adding relics");
         logger.info("AutoAdd sucks, adding manually");
 
-        // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-//        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-//        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-//        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
-        
-        // This adds a relic to the Shared pool. Every character can find this relic.
+        // Normal relics
         BaseMod.addRelic(new RunicDeltohedron(), RelicType.SHARED);
         BaseMod.addRelic(new AnglerfishLantern(), RelicType.SHARED);
         BaseMod.addRelic(new RedCandle(), RelicType.SHARED);
-
+        BaseMod.addRelic(new BlackCandle(), RelicType.SHARED);
+        // Sin relics
         BaseMod.addRelic(new SinPride(), RelicType.SHARED);
         BaseMod.addRelic(new SinGreed(), RelicType.SHARED);
         BaseMod.addRelic(new SinLust(), RelicType.SHARED);
@@ -292,17 +288,14 @@ public class MiniExpansion implements
         BaseMod.addRelic(new SinEnvy(), RelicType.SHARED);
         BaseMod.addRelic(new SinGluttony(), RelicType.SHARED);
         BaseMod.addRelic(new SinSloth(), RelicType.SHARED);
-
+        // Relic sets
         BaseMod.addRelic(new SetOfShip(), RelicType.SHARED);
         BaseMod.addRelic(new SetOfNinja(), RelicType.SHARED);
         BaseMod.addRelic(new SetOfFish(), RelicType.SHARED);
+
+        // BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
+        // UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
         
-        // Mark relics as seen - makes it visible in the compendium immediately
-        // If you don't have this it won't be visible in the compendium until you see them in game
-        // (the others are all starters so they're marked as seen in the character file)
-//        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
-
-
         logger.info("Done adding relics!");
     }
     

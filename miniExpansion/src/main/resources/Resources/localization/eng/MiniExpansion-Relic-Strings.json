@@ -24,6 +24,15 @@
     ]
   },
 
+  "miniExpansion:BlackCandle": {
+    "NAME": "Black Candle",
+    "FLAVOR": "TODO",
+    "DESCRIPTIONS": [
+      "At the end of your turn, #yExhaust all cards in your hand. You can #yExhaust up to #b",
+      " cards per combat."
+    ]
+  },
+
 
 
   "miniExpansion:SinPride": {
