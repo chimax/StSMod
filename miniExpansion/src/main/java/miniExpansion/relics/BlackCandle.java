@@ -27,7 +27,6 @@ public class BlackCandle extends CustomRelic {
 
     public BlackCandle() { super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, AbstractRelic.LandingSound.MAGICAL); }
 
-    // TODO
     @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0] + 3 + DESCRIPTIONS[1];

@@ -1,5 +1,7 @@
 package miniExpansion.patches;
 
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,8 +22,10 @@ public class DebugPatch {
 //        }
 //    }
 
-//    // Generate certain event room for debugging
-//
+
+
+      // Generate certain event room for debugging
+
 //    @SpirePatch(clz = AbstractDungeon.class, method = "generateEvent")
 //    public static class MyEventRoomDebugPatch {
 //        public static AbstractEvent Postfix(AbstractEvent __result, Random rng) {
@@ -30,12 +34,11 @@ public class DebugPatch {
 //        }
 //    }
 
-//    @SpirePatch(clz = NeowReward.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {boolean.class})
-//    public static class MyNeowRewardDebugPatch {
-//        public static void Postfix(NeowReward __instance, boolean firstMini) {
-//        }
-//    }
-//
+
+
+
+      // Find the calling stack for debugging
+
 //    @SpirePatch(clz = CardCrawlGame.class, method = "loadPostCombat")
 //    public static class MyExceptionPatch {
 //        public static void Prefix(CardCrawlGame __instance) {

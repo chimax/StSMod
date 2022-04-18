@@ -38,7 +38,7 @@ public class NeowScreenManager {
         customScreenIndices.add(thisIndex);
     }
 
-    // Get a custom screen given its currScreen
+    // Get a custom screen given its int currScreen
     public static AbstractNeowScreen getScreen(int currScreen) {
         for (AbstractNeowScreen s : customScreens) {
             if (s.currScreen == currScreen) {
@@ -48,7 +48,7 @@ public class NeowScreenManager {
         return null;
     }
 
-    //  Get a custom screen given its ID
+    //  Get a custom screen given its string ID
     public static AbstractNeowScreen getScreen(String screenID) {
         for (AbstractNeowScreen s : customScreens) {
             if (s.screenID.equals(screenID)) {
@@ -58,7 +58,7 @@ public class NeowScreenManager {
         return null;
     }
 
-    // Get currScreen of a custom screen given its string ID
+    // Get int currScreen of a custom screen given its string ID
     public static int getScreenNumber(String screenID) {
         for (AbstractNeowScreen s : customScreens) {
             if (s.screenID.equals(screenID)) {

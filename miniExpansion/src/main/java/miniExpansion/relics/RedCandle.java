@@ -25,7 +25,6 @@ public class RedCandle extends CustomRelic {
 
     public RedCandle() { super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, AbstractRelic.LandingSound.MAGICAL); }
 
-    // TODO
     @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0];

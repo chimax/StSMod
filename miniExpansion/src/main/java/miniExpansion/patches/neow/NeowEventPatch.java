@@ -33,8 +33,9 @@ public class NeowEventPatch {
     @SpirePatch(clz = NeowEvent.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {boolean.class})
     public static class MyConstructorPatch {
         public static void Postfix(NeowEvent __instance, boolean isDone, int ___screenNum) {
-            // Init screens
-            if (NeowScreenManager.customScreens == null) { NeowScreenManager.initManager(); }
+            // Init screens - first time doing it after game starts so init without check
+            NeowScreenManager.initManager();
+            //if (NeowScreenManager.customScreens == null) { NeowScreenManager.initManager(); }
             // Copy screenNum for saving
             NeowEventPatch.screenNumPublic.set(__instance, ___screenNum);
         }
